@@ -16,13 +16,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/YOURNAME/publish-packages/game
+          images: ghcr.io/samp3209/publish-packages/game
           tags: type=sha
       - name: Login to GHCR
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.samp3209 }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build container
         uses: docker/build-push-action@v4
